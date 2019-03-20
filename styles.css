@@ -7,6 +7,7 @@
 body {
     height: 100vh;
     display: flex;
+    flex-direction: column;
     background: #161718;
 }
 
@@ -54,3 +55,22 @@ body {
     background-color: darkgray;
     transform: rotateY(180deg);
 }
+
+.start {
+    margin: auto;
+    padding: 20px;
+    width: 200px;
+
+  }
+  
+  .startbg {
+    padding-top: 20px;
+    display: flex;
+    margin: auto;
+  }
+  
+  .timer {
+    color: white;
+    text-align: center;
+    margin: 10px auto;
+  }
