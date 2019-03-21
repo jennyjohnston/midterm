@@ -67,7 +67,7 @@ body {
     margin: auto;
   }
   
-  .timer {
+  #time {
     color: white;
     text-align: center;
     margin: 10px auto;
