@@ -1,4 +1,9 @@
+
+const startButton = document.querySelector('.start');
+
+startButton.addEventListener('click', () =>{
 const cards = document.querySelectorAll('.memory-card');
+
 
 let hasFlippedCard = false;
 let lockBoard = false;
@@ -26,8 +31,6 @@ function flipCard() {
 
 function checkForMatch() {
     let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
-
-
     isMatch ? disableCards() : unFlipCards();
 }   
 
@@ -45,7 +48,6 @@ function unFlipCards() {
     setTimeout(() => {
         firstCard.classList.remove('flip');
         secondCard.classList.remove('flip');
-
         resetBoard();
     }, 1500);
 }
@@ -64,16 +66,13 @@ function resetBoard() {
 
 cards.forEach(card => card.addEventListener('click', flipCard));
 
-const startButton = document.querySelector('.start');
-
-startButton.addEventListener('click', () =>{
   var minutesLabel = document.getElementById("minutes");
   var secondsLabel = document.getElementById("seconds");
   var totalSeconds = 0;
   setInterval(setTime, 1000);
 
   function setTime()
-   {
+{
       ++totalSeconds;
       secondsLabel.innerHTML = pad(totalSeconds%60);
       minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));      
