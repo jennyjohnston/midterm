@@ -39,6 +39,7 @@ function disableCards() {
     secondCard.removeEventListener('click', flipCard);
 
     resetBoard();
+    checkForEndGame();
 }        
 
 function unFlipCards() {
@@ -66,28 +67,30 @@ function resetBoard() {
 
 cards.forEach(card => card.addEventListener('click', flipCard));
 
-  var minutesLabel = document.getElementById("minutes");
-  var secondsLabel = document.getElementById("seconds");
-  var totalSeconds = 0;
-  setInterval(setTime, 1000);
+let time, intervalId;
 
-  function setTime()
-{
-      ++totalSeconds;
-      secondsLabel.innerHTML = pad(totalSeconds%60);
-      minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));      
-    }
+time = -1;
+incrementTime();
+intervalId = setInterval(incrementTime, 1000);
 
-  function pad(val)
-    {
-      var valString = val + "";
-      if(valString.length < 2)
-          {
-            return "0" + valString;
-          }
-          else
-            {
-              return valString;
-            }
-        }
+function incrementTime() {
+  time++;
+  document.getElementById("time").textContent =
+          ("0" + Math.trunc(time / 60)).slice(-2) +
+          ":" + ("0" + (time % 60)).slice(-2);
+}
+
+function stopTime() {
+  clearInterval(intervalId);
+}
+
+function checkForEndGame() {
+  let cardsArr = Array.from(cards);
+  let flippedCards = cardsArr.every((card) => {
+      return card.classList.contains('flip');
+  })
+  if (flippedCards) {
+      stopTime();
+  }
+}
 });
