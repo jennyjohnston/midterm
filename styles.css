@@ -73,7 +73,11 @@ body {
     margin: 10px auto;
   }
 
-  @media only screen and (max-width: 900px) {
+.invisible {
+    visibility: hidden;
+}
+  
+@media only screen and (max-width: 900px) {
     body {
         flex-direction: column;
         background: #161718;

@@ -1,9 +1,9 @@
 
 const startButton = document.querySelector('.start');
 
-startButton.addEventListener('click', () =>{
+startButton.addEventListener('click', () => {
 const cards = document.querySelectorAll('.memory-card');
-
+let arr = Array.from(cards).map(item => item.dataset.name);
 
 let hasFlippedCard = false;
 let lockBoard = false;
@@ -25,21 +25,23 @@ function flipCard() {
     
     //second click
     secondCard = this;
-
     checkForMatch();
 }
 
 function checkForMatch() {
-    let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+    let isMatch = firstCard.dataset.name === secondCard.dataset.name;
     isMatch ? disableCards() : unFlipCards();
 }   
 
 function disableCards() {
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
-
-    resetBoard();
-    checkForEndGame();
+    setTimeout(() => {
+        firstCard.classList.add('invisible');
+        secondCard.classList.add('invisible');
+        resetBoard();
+        checkForEndGame();
+    }, 500);
 }        
 
 function unFlipCards() {
@@ -51,6 +53,7 @@ function unFlipCards() {
         secondCard.classList.remove('flip');
         resetBoard();
     }, 1500);
+
 }
 
 function resetBoard() {
@@ -66,6 +69,9 @@ function resetBoard() {
 })();
 
 cards.forEach(card => card.addEventListener('click', flipCard));
+
+
+//TIMER
 
 let time, intervalId;
 
@@ -90,7 +96,12 @@ function checkForEndGame() {
       return card.classList.contains('flip');
   })
   if (flippedCards) {
-      stopTime();
+     stopTime();
+
+     alert('hello');
+     location.reload();
   }
+
 }
 });
+
