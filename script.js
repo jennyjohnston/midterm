@@ -98,10 +98,32 @@ function checkForEndGame() {
   if (flippedCards) {
      stopTime();
 
-     alert('hello');
-     location.reload();
+// ******* 3.23.19 *******
+    // location.reload();
+    document.getElementById("box").style.display = "block";
+// ***********************
   }
 
 }
+
 });
 
+//  3.23.19
+
+let c = 0;
+
+function pop() {
+
+        if(c == 0) {
+        location.reload();
+        c = 0;
+    }
+
+    
+
+
+
+}
+
+
+// ********
