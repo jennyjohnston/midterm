@@ -6,69 +6,95 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>memory game midterm</title>
   <link rel="stylesheet" href="styles.css">
+
+  <!-- 3.23.19 - FONT -->
+  <link href="fonts\waltographUI.ttf" rel="stylesheet">
+
+  <!-- <style>
+    @import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great');
+  </style> -->
+  <!-- --------------- -->
+
 </head>
 <body>
   <section class="memory-game">
-    <div class="memory-card" data-framework="beer">
+    <div class="memory-card" data-name="beer">
       <img class="front-face" src="images/beer-white.svg" alt="beer"/>
       <img class="back-face" src="images/grandcircus-b.svg" alt="grand-circus"/>
     </div>
 
-    <div class="memory-card" data-framework="beer">
+    <div class="memory-card" data-name="beer">
       <img class="front-face" src="images/beer-white.svg" alt="beer"/>
       <img class="back-face" src="images/grandcircus-b.svg" alt="grand-circus"/>
     </div>
 
-    <div class="memory-card" data-framework="champagne-glass">
+    <div class="memory-card" data-name="champagne-glass">
       <img class="front-face" src="images/champagne-glass-white.svg" alt="champagne-glass"/>
       <img class="back-face" src="images/grandcircus-b.svg" alt="grand-circus"/>
     </div>
 
-    <div class="memory-card" data-framework="champagne-glass">
+    <div class="memory-card" data-name="champagne-glass">
       <img class="front-face" src="images/champagne-glass-white.svg" alt="champagne-glass"/>
       <img class="back-face" src="images/grandcircus-b.svg" alt="grand-circus"/>
     </div>
 
-    <div class="memory-card" data-framework="cocktail">
+    <div class="memory-card" data-name="cocktail">
       <img class="front-face" src="images/cocktail-white.svg" alt="cocktail"/>
       <img class="back-face" src="images/grandcircus-b.svg" alt="grand-circus"/>
     </div>
 
-    <div class="memory-card" data-framework="cocktail">
+    <div class="memory-card" data-name="cocktail">
       <img class="front-face" src="images/cocktail-white.svg" alt="cocktail"/>
       <img class="back-face" src="images/grandcircus-b.svg" alt="grand-circus"/>
     </div>
 
-    <div class="memory-card" data-framework="coffee">
+    <div class="memory-card" data-name="coffee">
       <img class="front-face" src="images/coffee-white.svg" alt="coffee"/>
       <img class="back-face" src="images/grandcircus-b.svg" alt="grand-circus"/>
     </div>
 
-    <div class="memory-card" data-framework="coffee">
+    <div class="memory-card" data-name="coffee">
       <img class="front-face" src="images/coffee-white.svg" alt="coffee"/>
       <img class="back-face" src="images/grandcircus-b.svg" alt="grand-circus"/>
     </div>
 
-    <div class="memory-card" data-framework="lemonade">
+    <div class="memory-card" data-name="lemonade">
       <img class="front-face" src="images/lemonade-white.svg" alt="lemonade"/>
       <img class="back-face" src="images/grandcircus-b.svg" alt="grand-circus"/>
     </div>
 
-    <div class="memory-card" data-framework="lemonade">
+    <div class="memory-card" data-name="lemonade">
       <img class="front-face" src="images/lemonade-white.svg" alt="lemonade"/>
       <img class="back-face" src="images/grandcircus-b.svg" alt="grand-circus"/>
     </div>
 
-    <div class="memory-card" data-framework="water">
+    <div class="memory-card" data-name="water">
       <img class="front-face" src="images/water-white.svg" alt="water"/>
       <img class="back-face" src="images/grandcircus-b.svg" alt="grand-circus"/>
     </div>
         
-    <div class="memory-card" data-framework="water">
+    <div class="memory-card" data-name="water">
       <img class="front-face" src="images/water-white.svg" alt="water"/>
       <img class="back-face" src="images/grandcircus-b.svg" alt="grand-circus"/>
     </div>          
   </section> 
+  
+  <div class="startbg">
+    <button class="start">Start</button>
+  </div>
+  <div id="time"></div>
+
+  <!-- GOOD JOB -->
+
+  <div id="box">
+
+    <span class="fas fa-check"></span>
+
+    <h1>Good Job!</h1>
+
+    <a class="playagain" onclick = "pop()">Play Again</a>
+
+  </div>
 
   <script src="script.js"></script>
 </body>

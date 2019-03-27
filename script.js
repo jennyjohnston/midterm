@@ -1,9 +1,9 @@
 
 const startButton = document.querySelector('.start');
 
-startButton.addEventListener('click', () =>{
+startButton.addEventListener('click', () => {
 const cards = document.querySelectorAll('.memory-card');
-
+let arr = Array.from(cards).map(item => item.dataset.name);
 
 let hasFlippedCard = false;
 let lockBoard = false;
@@ -25,20 +25,23 @@ function flipCard() {
     
     //second click
     secondCard = this;
-
     checkForMatch();
 }
 
 function checkForMatch() {
-    let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+    let isMatch = firstCard.dataset.name === secondCard.dataset.name;
     isMatch ? disableCards() : unFlipCards();
 }   
 
 function disableCards() {
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
-
-    resetBoard();
+    setTimeout(() => {
+        firstCard.classList.add('invisible');
+        secondCard.classList.add('invisible');
+        resetBoard();
+        checkForEndGame();
+    }, 500);
 }        
 
 function unFlipCards() {
@@ -50,6 +53,7 @@ function unFlipCards() {
         secondCard.classList.remove('flip');
         resetBoard();
     }, 1500);
+
 }
 
 function resetBoard() {
@@ -66,28 +70,60 @@ function resetBoard() {
 
 cards.forEach(card => card.addEventListener('click', flipCard));
 
-  var minutesLabel = document.getElementById("minutes");
-  var secondsLabel = document.getElementById("seconds");
-  var totalSeconds = 0;
-  setInterval(setTime, 1000);
 
-  function setTime()
-{
-      ++totalSeconds;
-      secondsLabel.innerHTML = pad(totalSeconds%60);
-      minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));      
+//TIMER
+
+let time, intervalId;
+
+time = -1;
+incrementTime();
+intervalId = setInterval(incrementTime, 1000);
+
+function incrementTime() {
+  time++;
+  document.getElementById("time").textContent =
+          ("0" + Math.trunc(time / 60)).slice(-2) +
+          ":" + ("0" + (time % 60)).slice(-2);
+}
+
+function stopTime() {
+  clearInterval(intervalId);
+}
+
+function checkForEndGame() {
+  let cardsArr = Array.from(cards);
+  let flippedCards = cardsArr.every((card) => {
+      return card.classList.contains('flip');
+  })
+  if (flippedCards) {
+     stopTime();
+
+// ******* 3.23.19 *******
+    // location.reload();
+    document.getElementById("box").style.display = "block";
+// ***********************
+  }
+
+}
+
+});
+
+//  3.23.19
+
+let c = 0;
+
+function pop() {
+
+        if(c == 0) {
+        location.reload();
+        c = 0;
     }
 
-  function pad(val)
-    {
-      var valString = val + "";
-      if(valString.length < 2)
-          {
-            return "0" + valString;
-          }
-          else
-            {
-              return valString;
-            }
-        }
-});
+    
+
+
+
+}
+
+
+// ********
