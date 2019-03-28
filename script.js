@@ -101,6 +101,10 @@ function checkForEndGame() {
 // ******* 3.23.19 *******
     // location.reload();
     document.getElementById("box").style.display = "block";
+    const span = document.createElement('span');
+    span.innerText =  ("0" + Math.trunc(time / 60)).slice(-2) +
+    ":" + ("0" + (time % 60)).slice(-2);
+    document.getElementById('box').appendChild(span);
 // ***********************
   }
 
