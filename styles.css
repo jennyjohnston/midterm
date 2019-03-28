@@ -64,7 +64,10 @@ body {
     margin: auto;
     padding: 20px;
     width: 200px;
-
+    color: white;
+    font-size: 15px;
+    background-color: #161718;
+    border: 2px solid #EE6737;
   }
   
   .startbg {
@@ -143,7 +146,7 @@ body {
     font-family: "waltograph";
     font-size: 30px;
     color: black;
-    padding: 10px 30px;
+    padding: 14px 30px 10px 30px;
     cursor: pointer;
     background: #3498db;
     display: inline-block;
@@ -165,7 +168,13 @@ body {
   }  
 /* ******* */
 
-
+h1 {
+    color: white;
+    font-size: 30px;
+    font-family: Verdana;
+    text-align: center;
+    padding: 10px;
+}
 
   
 @media only screen and (max-width: 900px) {
